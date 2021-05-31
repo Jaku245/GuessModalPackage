@@ -1,5 +1,5 @@
 {
-  "name": "GuessModal",
+  "name": "guess-modal",
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -7,6 +7,10 @@
     "dist",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaku245/GuessModalPackage"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build-examples": "react-scripts build",
