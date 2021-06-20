@@ -43,5 +43,4 @@ export default class Example extends Component {
 ```
 
 ## Examples
-starting screen
-![Starting screen will look like this :](https://cdn.pastemagazine.com/www/articles/Pokemon%20Header%20Best%20Of.jpg)
+![Starting screen will look like this :](https://drive.google.com/file/d/1KCDyOLaoQiMS4vExjklwMl41NwQR6fvG/view?usp=sharing)
