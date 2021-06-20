@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row, Image } from 'antd';
-import { Button, Modal, ModalBody, ModalHeader, FormInput } from 'shards-react';
+import { Container, Row, Col, Button, Modal, ModalBody, ModalHeader, FormInput } from 'shards-react';
 
 import '../App.css'
 import LottieAnimation from './lottie';
@@ -46,7 +45,6 @@ export default class GuessModal extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.setState({
                     pokemonData: data,
                     pokemonFetched: true
@@ -58,7 +56,8 @@ export default class GuessModal extends Component {
         const typeUrl = this.state.pokemonData.types[0].type.url
         await this.setState({
             pokemonData: null,
-            answer: null
+            answer: null,
+            enteredName: ''
         });
         let pokemonUrl = 0
         await fetch(typeUrl, {
@@ -81,7 +80,6 @@ export default class GuessModal extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.setState({
                     pokemonData: data,
                     pokemonFetched: true
@@ -109,7 +107,7 @@ export default class GuessModal extends Component {
         }
     }
 
-    async componentDidUpdate() {
+    async componentDidMount() {
         if (!this.state.pokemonFetched) {
             await this.fetchPokemon();
         }
@@ -121,22 +119,23 @@ export default class GuessModal extends Component {
             <>
                 <Modal open={this.props.showModal} toggle={this.props.toggleModal} >
                     <ModalHeader>
-                        <Row style={{ justifyContent: 'space-around' }}>
-                            <Col xs={24} sm={20}>
-                                Who am I ???
-                            </Col>
-                            <Col xs={24} sm={4}>
-                                <Button theme="dark" onClick={this.props.toggleModal}  >Close</Button>
-                            </Col>
-                        </Row>
+                        <Container>
+                            <Row style={{ justifyContent: 'space-around' }}>
+                                <Col>
+                                    Who am I ???
+                                </Col>
+                            </Row>
+                        </Container>
                     </ModalHeader>
                     <ModalBody>
                         {
                             pokemon != null
                                 ?
-                                <Row style={{ justifyContent: 'space-around', marginBottom: '2rem' }}>
-                                    <Image preview={false} width={150} height={150} src={pokemon.sprites.front_default} className='logo' />
-                                </Row>
+                                <Container>
+                                    <Row style={{ justifyContent: 'space-around', marginBottom: '2rem' }}>
+                                        <img width={150} height={150} src={pokemon.sprites.front_default} alt="pokemon" className='logo' />
+                                    </Row>
+                                </Container>
                                 :
                                 <LottieAnimation lottie={loader} width={50} height={100} />
                         }
@@ -153,37 +152,46 @@ export default class GuessModal extends Component {
                                 })
                             }
                         }} placeholder="start writing ..." />
-                        <Row style={{ justifyContent: 'space-around' }}>
-                            <Col>
-                                <Button theme="dark" onClick={this.checkAnswer} style={{ marginTop: 20 }} >Check my guess</Button>
-                            </Col>
-                        </Row>
-                        <Row style={{ justifyContent: 'space-around' }}>
-                            <Col>
-                                <Button theme="dark" onClick={async () => {
-                                    await this.setState({
-                                        pokemonData: null,
-                                        answer: null
-                                    });
-                                    await this.fetchPokemon();
-                                }} style={{ marginTop: 20 }} >Guess random pokemon</Button>
-                            </Col>
-                            <Col>
-                                <Button theme="dark" onClick={this.fetchPokemonOfSameType} style={{ marginTop: 20 }} >Guess related pokemon</Button>
-                            </Col>
-                        </Row>
+                        <Container>
+                            <Row style={{ justifyContent: 'space-around' }}>
+                                <Col></Col>
+                                <Col sm="6">
+                                    <Button theme="dark" onClick={this.checkAnswer} style={{ marginTop: 20 }} >Check my guess</Button>
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                            <Row style={{ justifyContent: 'space-around' }}>
+                                <Col>
+                                    <Button theme="dark" onClick={async () => {
+                                        await this.setState({
+                                            pokemonData: null,
+                                            answer: null,
+                                            enteredName: ''
+                                        });
+                                        await this.fetchPokemon();
+                                    }} style={{ marginTop: 20 }} >Guess random pokemon</Button>
+                                </Col>
+                                <Col>
+                                    <Button theme="dark" onClick={this.fetchPokemonOfSameType} style={{ marginTop: 20 }} >Guess related pokemon</Button>
+                                </Col>
+                            </Row>
+                        </Container>
                         {
                             this.state.answer != null
                                 ?
                                 this.state.answer
                                     ?
-                                    <Row style={{ justifyContent: 'space-around', marginTop: '2rem' }}>
-                                        <LottieAnimation lottie={correct} width={150} height={150} />
-                                    </Row>
+                                    <Container>
+                                        <Row style={{ justifyContent: 'space-around', marginTop: '2rem' }}>
+                                            <LottieAnimation lottie={correct} width={150} height={150} />
+                                        </Row>
+                                    </Container>
                                     :
-                                    <Row style={{ justifyContent: 'space-around', marginTop: '2rem' }}>
-                                        <LottieAnimation lottie={oops} width={250} height={150} />
-                                    </Row>
+                                    <Container>
+                                        <Row style={{ justifyContent: 'space-around', marginTop: '2rem' }}>
+                                            <LottieAnimation lottie={oops} width={250} height={150} />
+                                        </Row>
+                                    </Container>
                                 :
                                 null
                         }

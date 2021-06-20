@@ -1,5 +1,5 @@
 {
-  "name": "guess-modal",
+  "name": "guess-modal-lib",
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -15,15 +15,27 @@
     "start": "react-scripts start",
     "build-examples": "react-scripts build",
     "eject": "react-scripts eject",
-    "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+    "build": "webpack"
   },
   "devDependencies": {
-    "antd": "^4.16.1",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
     "babel-cli": "^6.26.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-lottie": "^1.2.3",
     "react-scripts": "4.0.3",
-    "shards-react": "^1.0.3"
-  }
+    "shards-react": "^1.0.3",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {}
 }
