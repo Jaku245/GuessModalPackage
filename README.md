@@ -47,7 +47,7 @@ Starting screen will look like this :
 
 ![start](/samples/start.png)
 
-You can see error when you try to check ans wih out typing anything :
+You can see error when you try to check answer wih out typing anything :
 
 ![error](/samples/error.png)
 
@@ -66,3 +66,6 @@ On clicking guess related pokemon, same type pokemon will be shown :
 On clicking guess random pokemon, any random pokemon will be shown :
 
 ![random](/samples/random.png)
+
+
+Happy Using!!!
