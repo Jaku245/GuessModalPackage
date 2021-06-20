@@ -5,16 +5,18 @@ It shows any random pokemon at the start and after that you can guess what this 
 ## Installation and Set-up
 Run the following command in your terminal : `npm i guess-modal-lib`.
 
-After installing, you have two import two styling files in index.js (please maintain the order of this two imports for better UI)
+After installing, you have to import two styling files in index.js (please maintain the order of this two imports for better UI)
 
 index.js
 ```javascript
+import React from 'react';
 .
 .
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 .
 .
+import App from './App';
 ```
 ## How to use
 Create one state variable for component visibility and function to toggle modal.
