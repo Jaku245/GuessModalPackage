@@ -43,4 +43,4 @@ export default class Example extends Component {
 ```
 
 ## Examples
-![Starting screen will look like this :](https://drive.google.com/file/d/1KCDyOLaoQiMS4vExjklwMl41NwQR6fvG/view?usp=sharing)
+![Starting screen will look like this :](https://icedrive.net/0/63T3bPfpyp)
