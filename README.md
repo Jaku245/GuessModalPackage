@@ -46,3 +46,23 @@ export default class Example extends Component {
 Starting screen will look like this :
 
 ![start](/samples/start.png)
+
+You can see error when you try to check ans wih out typing anything :
+
+![error](/samples/error.png)
+
+Animation for correct guess will be shown like this :
+
+![correct](/samples/correct.png)
+
+Animation for wrong guess will be shown like this :
+
+![wrong](/samples/wrong.png)
+
+On clicking guess related pokemon, same type pokemon will be shown :
+
+![same](/samples/same.png)
+
+On clicking guess random pokemon, any random pokemon will be shown :
+
+![random](/samples/random.png)
