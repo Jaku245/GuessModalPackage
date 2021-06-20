@@ -7238,9 +7238,7 @@ var GuessModal = /*#__PURE__*/function (_Component) {
         style: {
           justifyContent: 'space-around'
         }
-      }, /*#__PURE__*/react.createElement(Col, {
-        sm: "6"
-      }, /*#__PURE__*/react.createElement(Button, {
+      }, /*#__PURE__*/react.createElement(Col, null, /*#__PURE__*/react.createElement(Button, {
         theme: "dark",
         onClick: /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
           return regeneratorRuntime.wrap(function _callee7$(_context7) {
@@ -7268,9 +7266,7 @@ var GuessModal = /*#__PURE__*/function (_Component) {
         style: {
           marginTop: 20
         }
-      }, "Guess random pokemon")), /*#__PURE__*/react.createElement(Col, {
-        sm: "6"
-      }, /*#__PURE__*/react.createElement(Button, {
+      }, "Guess random pokemon")), /*#__PURE__*/react.createElement(Col, null, /*#__PURE__*/react.createElement(Button, {
         theme: "dark",
         onClick: this.fetchPokemonOfSameType,
         style: {
